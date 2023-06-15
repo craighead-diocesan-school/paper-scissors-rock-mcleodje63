@@ -1,18 +1,32 @@
 <script>
   import Header from "$lib/Header.svelte";
   import Footer from "$lib/Footer.svelte";
-  let userMove;
-  function game() {
-    userMove = userMove.toLowerCase();
-    //   if (userMove == "paper") {
-    //   }
-    //   if (userMove == "rock") {
-    //   }
-    //   if (userMove == "scissors") {
-    //   }
-
-    //
+  let userMove = "";
+  function paper() {
+    userMove = "paper";
+    let autoMoves = ["paper", "scissors", "rock"];
+    let autoMove;
+    let index = Math.floor(Math.random(0) * autoMoves.length);
+    autoMove = autoMoves[index];
   }
+  function scissors() {
+    userMove = "scissors";
+    let autoMoves = ["paper", "scissors", "rock"];
+    let autoMove;
+    let index = Math.floor(Math.random(0) * autoMoves.length);
+    autoMove = autoMoves[index];
+  }
+  function rock() {
+    userMove = "rock";
+    let autoMoves = ["paper", "scissors", "rock"];
+    let autoMove;
+    let index = Math.floor(Math.random(0) * autoMoves.length);
+    autoMove = autoMoves[index];
+  }
+  let autoMoves = ["paper", "scissors", "rock"];
+  let autoMove;
+  let index = Math.floor(Math.random(0) * autoMoves.length);
+  autoMove = autoMoves[index];
 </script>
 
 <Header />
@@ -24,7 +38,18 @@
   <br />
   Use the box below to play!
   <br />
-  <input bind:value={userMove} /><button on:click={game}>Click here</button>
+  <button on:click={paper}><img src="paper.png" alt="paper" /></button>
+  <button on:click={scissors}><img src="scissors.png" alt="paper" /></button>
+  <button on:click={rock}><img src="rock.png" alt="paper" /></button>
+  <br />
+  You chose: {userMove}
+  <br />
+  The computer chose: {autoMove}
 </main>
-
 <Footer />
+
+<style>
+  img {
+    width: 40px;
+  }
+</style>
