@@ -18,7 +18,6 @@
     } else {
       response = "lose";
     }
-    userMove = paper.png;
   }
   function scissors() {
     buttonsVisible = false;
@@ -50,9 +49,8 @@
   let autoMoves = ["paper", "scissors", "rock"];
 </script>
 
-<Header />
-
 <main>
+  <Header />
   <h2>Welcome</h2>
 
   <p>Paper Scissors Rock, also known as Rock Paper Scissors or simply RPS, is a popular hand game played between two individuals. The objective of the game is to select one of three possible hand gestures—rock, paper, or scissors—while simultaneously trying to predict the gesture chosen by the opponent. The game follows a set of predefined rules that determine the outcome based on the combination of gestures chosen by both players.</p>
@@ -66,17 +64,32 @@
     <button on:click={rock}><img src="rock.png" alt="rock" /></button>
   {:else}
     <br />
-    You chose: {userMove}
+    You chose: <img src="{userMove}.png" alt={userMove} />
     <br />
-    The computer chose: {autoMove}
+    The computer chose: <img src="{autoMove}.png" alt={autoMove} />
     <br />
     You {response}
   {/if}
+
+  {#if response == "lose"}<img src="tobey.webp" alt="Tobey Maguire" />
+  {:else if response == "win"}<img src="theWeeknd.gif" alt="The Weeknd" />
+  {:else if response == "tie"}<img src="tie.gif" alt="tie" />{/if}
+
+  <Footer />
 </main>
-<Footer />
 
 <style>
+  main {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100vh;
+    text-align: center;
+  }
   img {
-    width: 40px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>
