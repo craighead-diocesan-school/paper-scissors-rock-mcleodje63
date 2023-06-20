@@ -4,11 +4,9 @@
   let userMove = "";
   let autoMove = "";
   let response = "";
-  let output;
   let buttonsVisible = true;
 
   function paper() {
-    output = "tapistry";
     userMove = "paper";
     buttonsVisible = false;
     let index = Math.floor(Math.random(0) * autoMoves.length);
@@ -20,6 +18,7 @@
     } else {
       response = "lose";
     }
+    userMove = paper.png;
   }
   function scissors() {
     buttonsVisible = false;
@@ -62,9 +61,9 @@
     Use the box below to play!
     <br />
 
-    <button on:click={paper}><img src="paper.png" alt="paper" id="tapistry" /></button>
-    <button on:click={scissors}><img src="scissors.png" alt="scissors" id="blades" /></button>
-    <button on:click={rock}><img src="rock.png" alt="rock" id="stone" /></button>
+    <button on:click={paper}><img src="paper.png" alt="paper" /></button>
+    <button on:click={scissors}><img src="scissors.png" alt="scissors" /></button>
+    <button on:click={rock}><img src="rock.png" alt="rock" /></button>
   {:else}
     <br />
     You chose: {userMove}
